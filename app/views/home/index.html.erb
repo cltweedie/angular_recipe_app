@@ -18,11 +18,11 @@
 
       <div class="pure-u-1 mt">
         <label>Show</label>
-        <button class="pure-button" ng-click="showMeal = 'all'">All</button>
-        <button class="pure-button" ng-click="showMeal = 'Breakfast'">Breakfast</button>
-        <button class="pure-button" ng-click="showMeal = 'Lunch'">Lunch</button>
-        <button class="pure-button" ng-click="showMeal = 'Dinner'">Dinner</button>
-        <button class="pure-button" ng-click="showMeal = 'Dessert'">Dessert</button>
+        <button class="pure-button" ng-click="showMeal = 'all'" ng-class='{"pure-button-active": showMeal == "all"}'>All</button>
+        <button class="pure-button" ng-click="showMeal = 'Breakfast'" ng-class='{"pure-button-active": showMeal == "Breakfast"}'>Breakfast</button>
+        <button class="pure-button" ng-click="showMeal = 'Lunch'" ng-class='{"pure-button-active": showMeal == "Lunch"}'>Lunch</button>
+        <button class="pure-button" ng-click="showMeal = 'Dinner'" ng-class='{"pure-button-active": showMeal == "Dinner"}'>Dinner</button>
+        <button class="pure-button" ng-click="showMeal = 'Dessert'" ng-class='{"pure-button-active": showMeal == "Dessert"}'>Dessert</button>
       </div>
 
       <section id="recipes">
