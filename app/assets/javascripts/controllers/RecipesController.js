@@ -5,6 +5,14 @@ recipeApp.controller('RecipesController', function($scope, $http) {
 
   $scope.sortOrder = "'title'";
 
+  $scope.sortByTitle = function() {
+    $scope.sortOrder = "'title'";
+  },
+
+  $scope.sortByMeal = function() {
+    $scope.sortOrder = "'meal'";
+  },
+
   $scope.editRecipe = function(recipe) {
     console.log("Editing " + recipe.title);
   };
@@ -24,11 +32,15 @@ recipeApp.controller('RecipesController', function($scope, $http) {
     });
   };
 
+  $scope.confirmDeleteRecipe = function(recipe) {
+    $scope.recipeToDelete = recipe;
+  };
+
   $scope.deleteRecipe = function(recipe) {
     $http.delete('/recipes/' + recipe.id).then(function(response) {
       var index = $scope.recipes.indexOf(recipe);
       $scope.recipes.splice(index, 1);
-      console.log(response);
+      $scope.recipeToDelete = null;
     });
-  };
+  }
 });

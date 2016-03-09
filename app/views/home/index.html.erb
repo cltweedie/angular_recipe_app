@@ -13,15 +13,15 @@
     <div class="pure-u-7-8 pure-g" ng-controller="RecipesController">
       <h1>Recipes</h1>
       <label>Order by</label>
-      <button class="pure-button pure-button-active" ng-click="sortByName()">Title</button>
-      <button class="pure-button" ng-click="sortByRating()">Rating</button>
+      <button class="pure-button" ng-click="sortByTitle()" ng-class='{"pure-button-active": sortOrder[1] == "t"}'>Title</button>
+      <button class="pure-button" ng-click="sortByMeal()" ng-class='{"pure-button-active": sortOrder[1] == "m"}'>Meal</button>
       <section id="recipes">
         <div ng-repeat="recipe in recipes | orderBy:sortOrder" class="pure-u-1 pure-u-md-1-4">
           <div class="recipe">
             <div class="recipe-heading">
               <a href="{{recipe.link}}"><h2>{{recipe.title}}</h2></a>
               <button ng-click="editRecipe(recipe)" class="pure-button">Edit</button>
-              <button ng-click="deleteRecipe(recipe)" class="pure-button">Delete</button>
+              <button ng-click="confirmDeleteRecipe(recipe)" class="pure-button">Delete</button>
             </div>
             <a href="{{recipe.link}}">
               <img class="recipe-image" ng-src="{{recipe.image_url}}" alt="{{recipe.title}}" />
@@ -30,6 +30,15 @@
         </div>
       </section>
 
+      <div ng-show="recipeToDelete" class="modal-background">
+        <div class="modal">
+          <p>Are you sure you want to delete this recipe?</p>
+
+          <button class="pure-button button-error" ng-click="deleteRecipe(recipeToDelete)">Confirm</button>
+          <button class="pure-button button-secondary" ng-click="recipeToDelete = null">Cancel</button>
+        </div>
+      </div>
+
       <form ng-submit="addRecipe()" class="pure-form pure-form-stacked">
         <label for="title">Title</label>
         <input name="title" type="text" ng-model="newRecipeTitle" class="pure-input-1-3" />
@@ -37,6 +46,13 @@
         <input name="link" type="text" ng-model="newRecipeLink" class="pure-input-1-3"/>
         <label for="image_url">Image URL</label>
         <input name="image_url" type="text" ng-model="newRecipeImageUrl" class="pure-input-1-3"/>
+        <label for="meal">Meal</label>
+        <select name="meal" type="text" ng-model="newRecipeMeal" class="pure-input-1-3">
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+          <option>Dessert</option>
+        </select>
         <button type="submit" class="pure-button">Add</button>
       </form>
     </div>
