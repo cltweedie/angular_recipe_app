@@ -15,8 +15,18 @@
       <label>Order by</label>
       <button class="pure-button" ng-click="sortByTitle()" ng-class='{"pure-button-active": sortOrder[1] == "t"}'>Title</button>
       <button class="pure-button" ng-click="sortByMeal()" ng-class='{"pure-button-active": sortOrder[1] == "m"}'>Meal</button>
+
+      <div class="pure-u-1 mt">
+        <label>Show</label>
+        <button class="pure-button" ng-click="showMeal = 'all'">All</button>
+        <button class="pure-button" ng-click="showMeal = 'Breakfast'">Breakfast</button>
+        <button class="pure-button" ng-click="showMeal = 'Lunch'">Lunch</button>
+        <button class="pure-button" ng-click="showMeal = 'Dinner'">Dinner</button>
+        <button class="pure-button" ng-click="showMeal = 'Dessert'">Dessert</button>
+      </div>
+
       <section id="recipes">
-        <div ng-repeat="recipe in recipes | orderBy:sortOrder" class="pure-u-1 pure-u-md-1-4">
+        <div ng-repeat="recipe in recipes | orderBy:sortOrder" class="pure-u-1 pure-u-md-1-4" ng-if="showMeal == 'all' || showMeal == recipe.meal">
           <div class="recipe">
             <div class="recipe-heading">
               <a href="{{recipe.link}}"><h2>{{recipe.title}}</h2></a>

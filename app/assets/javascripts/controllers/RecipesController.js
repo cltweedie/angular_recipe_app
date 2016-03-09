@@ -3,6 +3,8 @@ recipeApp.controller('RecipesController', function($scope, $http) {
     $scope.recipes = response.data;
   });
 
+  $scope.showMeal = "Dinner";
+
   $scope.sortOrder = "'title'";
 
   $scope.sortByTitle = function() {
