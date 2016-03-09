@@ -13,8 +13,8 @@
     <div class="pure-u-7-8 pure-g" ng-controller="RecipesController">
       <h1>All Recipes</h1>
       <label>Order by</label>
-      <button class="pure-button" ng-click="sortByTitle()" ng-class='{"pure-button-active": sortOrder[1] == "t"}'>Title</button>
-      <button class="pure-button" ng-click="sortByMeal()" ng-class='{"pure-button-active": sortOrder[1] == "m"}'>Meal</button>
+      <button class="pure-button" ng-click="sortOrder = 'title'" ng-class='{"pure-button-active": sortOrder[1] == "t"}'>Title</button>
+      <button class="pure-button" ng-click="sortOrder = '-rating'" ng-class='{"pure-button-active": sortOrder[1] == "r"}'>Rating</button>
 
       <div class="pure-u-1 mt">
         <label>Show</label>
@@ -30,6 +30,7 @@
           <div class="recipe">
             <div class="recipe-heading">
               <a href="{{recipe.link}}"><h2>{{recipe.title}}</h2></a>
+              <p>{{recipe.rating}}
               <button ng-click="editRecipe(recipe)" class="pure-button">Edit</button>
               <button ng-click="confirmDeleteRecipe(recipe)" class="pure-button">Delete</button>
             </div>
