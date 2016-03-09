@@ -14,21 +14,21 @@ Recipe.create(
 )
 
 Recipe.create(
-  title: "Chocolate Brownies".
+  title: "Chocolate Brownies",
   link: "http://www.bbcgoodfood.com/recipes/1223/bestever-brownies",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1001464_11.jpg?itok=Va_PfXJj",
   meal: "Dessert"
 )
 
 Recipe.create(
-  title: "Toad in the Hole".
+  title: "Toad in the Hole",
   link: "http://www.bbcgoodfood.com/recipes/1572643/sams-toad-in-the-hole",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--736458_11.jpg?itok=x-pnYsyr",
   meal: "Dinner"
 )
 
 Recipe.create(
-  title: "Wild Garlic Chicken Kiev".
+  title: "Wild Garlic Chicken Kiev",
   link: "http://www.bbcgoodfood.com/recipes/wild-garlic-chicken-kiev",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/wild-garlic-chicken-kiev.jpg?itok=IhLpGrzG",
   meal: "Dinner"
