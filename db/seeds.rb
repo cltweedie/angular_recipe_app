@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Recipe.create(
-  title: "Cauliflower and Spinach Pasta Bake".
+  title: "Cauliflower and Spinach Pasta Bake",
   link: "http://www.bbcgoodfood.com/recipes/166618/cauliflower-cheese-and-spinach-pasta-bakes",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/recipe-image-legacy-id--424655_11.jpg?itok=fAEOmPAx",
   meal: "Dinner"
