@@ -3,6 +3,8 @@ recipeApp.controller('RecipesController', function($scope, $http) {
     $scope.recipes = response.data;
   });
 
+  $scope.sortOrder = "'title'";
+
   $scope.editRecipe = function(recipe) {
     console.log("Editing " + recipe.title);
   };
@@ -15,6 +17,18 @@ recipeApp.controller('RecipesController', function($scope, $http) {
     }
     $http.post('/recipes', recipe).then(function(response) {
       console.log(response);
+      $scope.recipes.push(response.data);
+      $scope.newRecipeTitle = "";
+      $scope.newRecipeLink = "";
+      $scope.newRecipeImageUrl = "";
     });
-  }
+  };
+
+  $scope.deleteRecipe = function(recipe) {
+    $http.delete('/recipes/' + recipe.id).then(function(response) {
+      var index = $scope.recipes.indexOf(recipe);
+      $scope.recipes.splice(index, 1);
+      console.log(response);
+    });
+  };
 });

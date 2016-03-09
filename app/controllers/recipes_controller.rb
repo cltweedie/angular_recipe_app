@@ -6,7 +6,13 @@ class RecipesController < ApplicationController
   end
 
   def create
-    Recipe.create!(recipe_params)
+    @recipe = Recipe.create!(recipe_params)
+    render json: @recipe
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy!
     render nothing: true
   end
 
