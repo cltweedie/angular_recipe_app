@@ -60,9 +60,15 @@ h2 {
 }
 
 #recipes > div > * {
-  margin: 0.5rem 0.5rem;
+  margin: 0.3rem 0.5rem;
 }
 
 .star {
   width: 20px;
+}
+
+.pure-button-active {
+  background-color: #58ACFA;
+  color: white;
+  border: none;
 }
