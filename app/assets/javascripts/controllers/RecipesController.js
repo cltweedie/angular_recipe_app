@@ -1,4 +1,4 @@
-recipeApp.controller('RecipesController', function($scope, $http) {
+var RecipesController = recipeApp.controller('RecipesController', function($scope, $http) {
   $http.get('/recipes').then(function(response) {
     $scope.recipes = response.data;
   });
