@@ -1,4 +1,4 @@
-var RecipesController = recipeApp.controller('RecipesController', function($scope, $http) {
+recipeApp.controller('RecipesController', function($scope, $http) {
   $http.get('/recipes').then(function(response) {
     $scope.recipes = response.data;
   });
@@ -47,6 +47,3 @@ var RecipesController = recipeApp.controller('RecipesController', function($scop
     });
   }
 });
-
-// Adding this line to try to fix issue with deploying to Heroku
-RecipesController.$inject = ['$scope', '$http'];
