@@ -11,6 +11,10 @@ recipeApp.controller('RecipesController', function($scope, $http) {
     console.log("Editing " + recipe.title);
   };
 
+  $scope.getTimes = function(n){
+       return new Array(n);
+  };
+
   $scope.addRecipe = function() {
     var recipe = {
       title: $scope.newRecipeTitle,

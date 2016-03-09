@@ -30,7 +30,9 @@
           <div class="recipe">
             <div class="recipe-heading">
               <a href="{{recipe.link}}"><h2>{{recipe.title}}</h2></a>
-              <p>{{recipe.rating}}
+              <span ng-repeat="stars in getTimes(recipe.rating) track by $index">
+                <%= image_tag "star.png", alt: "star", class: "star" %>
+              </span>
               <button ng-click="editRecipe(recipe)" class="pure-button">Edit</button>
               <button ng-click="confirmDeleteRecipe(recipe)" class="pure-button">Delete</button>
             </div>
