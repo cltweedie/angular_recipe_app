@@ -10,33 +10,38 @@ Recipe.create(
   title: "Cauliflower and Spinach Pasta Bake",
   link: "http://www.bbcgoodfood.com/recipes/166618/cauliflower-cheese-and-spinach-pasta-bakes",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/recipe-image-legacy-id--424655_11.jpg?itok=fAEOmPAx",
-  meal: "Dinner"
+  meal: "Dinner",
+  rating: 4
 )
 
 Recipe.create(
   title: "Chocolate Brownies",
   link: "http://www.bbcgoodfood.com/recipes/1223/bestever-brownies",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1001464_11.jpg?itok=Va_PfXJj",
-  meal: "Dessert"
+  meal: "Dessert",
+  rating: 5
 )
 
 Recipe.create(
   title: "Toad in the Hole",
   link: "http://www.bbcgoodfood.com/recipes/1572643/sams-toad-in-the-hole",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--736458_11.jpg?itok=x-pnYsyr",
-  meal: "Dinner"
+  meal: "Dinner",
+  rating: 3
 )
 
 Recipe.create(
   title: "Wild Garlic Chicken Kiev",
   link: "http://www.bbcgoodfood.com/recipes/wild-garlic-chicken-kiev",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/wild-garlic-chicken-kiev.jpg?itok=IhLpGrzG",
-  meal: "Dinner"
+  meal: "Dinner",
+  rating: 3
 )
 
 Recipe.create(
   title: "Breakfast Burger",
   link: "http://www.bbcgoodfood.com/recipes/10418/the-great-breakfast-burger",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1075571_11.jpg?itok=cMxEmQHr",
-  meal: "Breakfast"
+  meal: "Breakfast",
+  rating: 2
 )
