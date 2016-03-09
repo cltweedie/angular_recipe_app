@@ -45,3 +45,11 @@ Recipe.create(
   meal: "Breakfast",
   rating: 2
 )
+
+Recipe.create(
+  title: "Club Sandwich",
+  link: "http://www.bbcgoodfood.com/recipes/1363639/club-sandwich",
+  image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--653594_11.jpg?itok=9trM5bYp",
+  meal: "Lunch",
+  rating: 4
+)

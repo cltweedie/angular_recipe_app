@@ -20,7 +20,8 @@ recipeApp.controller('RecipesController', function($scope, $http) {
       title: $scope.newRecipeTitle,
       link: $scope.newRecipeLink,
       image_url: $scope.newRecipeImageUrl,
-      meal: $scope.newRecipeMeal
+      meal: $scope.newRecipeMeal,
+      rating: $scope.newRecipeRating
     }
     $http.post('/recipes', recipe).then(function(response) {
       console.log(response);

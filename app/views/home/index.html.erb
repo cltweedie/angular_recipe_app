@@ -60,11 +60,19 @@
         <label for="image_url">Image URL</label>
         <input name="image_url" type="text" ng-model="newRecipeImageUrl" class="pure-input-1-3"/>
         <label for="meal">Meal</label>
-        <select name="meal" type="text" ng-model="newRecipeMeal" class="pure-input-1-3">
+        <select name="meal" ng-model="newRecipeMeal" class="pure-input-1-3">
           <option>Breakfast</option>
           <option>Lunch</option>
           <option>Dinner</option>
           <option>Dessert</option>
+        </select>
+        <label for="rating">Rating</label>
+        <select name="rating" ng-model="newRecipeRating" class="pure-input-1-3">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
         </select>
         <button type="submit" class="pure-button">Add</button>
       </form>
