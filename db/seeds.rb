@@ -33,3 +33,10 @@ Recipe.create(
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/wild-garlic-chicken-kiev.jpg?itok=IhLpGrzG",
   meal: "Dinner"
 )
+
+Recipe.create(
+  title: "Breakfast Burger",
+  link: "http://www.bbcgoodfood.com/recipes/10418/the-great-breakfast-burger",
+  image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1075571_11.jpg?itok=cMxEmQHr",
+  meal: "Breakfast"
+)
