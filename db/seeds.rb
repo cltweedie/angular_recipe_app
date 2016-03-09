@@ -53,3 +53,19 @@ Recipe.create(
   meal: "Lunch",
   rating: 4
 )
+
+Recipe.create(
+  title: "English Breakfast",
+  link: "http://www.bbcgoodfood.com/recipes/775644/allday-breakfast",
+  image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--401479_12.jpg?itok=HoJZsfz5",
+  meal: "Breakfast",
+  rating: 2
+)
+
+Recipe.create(
+  title: "Scones",
+  link: "http://www.bbcgoodfood.com/recipes/1729/ultimate-scones",
+  image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1445_12.jpg?itok=_GLow320",
+  meal: "Dessert",
+  rating: 1
+)

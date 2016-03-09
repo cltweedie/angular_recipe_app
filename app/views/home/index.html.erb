@@ -13,8 +13,8 @@
     <div class="pure-u-7-8 pure-g" ng-controller="RecipesController">
       <h1>All Recipes</h1>
       <label>Order by</label>
-      <button class="pure-button" ng-click="sortOrder = 'title'" ng-class='{"pure-button-active": sortOrder[1] == "t"}'>Title</button>
-      <button class="pure-button" ng-click="sortOrder = '-rating'" ng-class='{"pure-button-active": sortOrder[1] == "r"}'>Rating</button>
+      <button class="pure-button" ng-click="sortOrder = 'title'" ng-class='{"pure-button-active": sortOrder == "title"}'>Title</button>
+      <button class="pure-button" ng-click="sortOrder = '-rating'" ng-class='{"pure-button-active": sortOrder == "-rating"}'>Rating</button>
 
       <div class="pure-u-1 mt">
         <label>Show</label>

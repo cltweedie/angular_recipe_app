@@ -5,7 +5,7 @@ recipeApp.controller('RecipesController', function($scope, $http) {
 
   $scope.showMeal = "all";
 
-  $scope.sortOrder = "'title'";
+  $scope.sortOrder = "title";
 
   $scope.editRecipe = function(recipe) {
     console.log("Editing " + recipe.title);
