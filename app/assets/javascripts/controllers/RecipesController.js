@@ -47,3 +47,6 @@ recipeApp.controller('RecipesController', function($scope, $http) {
     });
   }
 });
+
+// Adding this line to try to fix issue with deploying to Heroku
+RecipesController.$inject = ['$scope', '$http'];
