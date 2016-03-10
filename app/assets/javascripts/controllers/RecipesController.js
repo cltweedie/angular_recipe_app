@@ -31,6 +31,7 @@ recipeApp.controller('RecipesController', function($scope, $http) {
       $scope.newRecipeLink = "";
       $scope.newRecipeImageUrl = "";
     });
+    $scope.newRecipe = false;
   };
 
   $scope.confirmDeleteRecipe = function(recipe) {
@@ -56,5 +57,5 @@ recipeApp.controller('RecipesController', function($scope, $http) {
       $scope.recipes[index] = response.data;
       $scope.recipeToEdit = null;
     })
-  }
+  };
 });
