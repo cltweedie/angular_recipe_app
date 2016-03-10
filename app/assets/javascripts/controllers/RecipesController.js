@@ -4,11 +4,13 @@ recipeApp.controller('RecipesController', function($scope, $http) {
   });
 
   $scope.showMeal = "all";
-
   $scope.sortOrder = "title";
 
   $scope.editRecipe = function(recipe) {
-    console.log("Editing " + recipe.title);
+    $scope.recipeToEdit = recipe;
+    $scope.editRecipeTitle = recipe.title;
+    $scope.editRecipeLink = recipe.link;
+    $scope.editRecipeImageUrl = recipe.image_url;
   };
 
   $scope.getTimes = function(n){
@@ -24,7 +26,6 @@ recipeApp.controller('RecipesController', function($scope, $http) {
       rating: $scope.newRecipeRating
     }
     $http.post('/recipes', recipe).then(function(response) {
-      console.log(response);
       $scope.recipes.push(response.data);
       $scope.newRecipeTitle = "";
       $scope.newRecipeLink = "";
@@ -42,5 +43,18 @@ recipeApp.controller('RecipesController', function($scope, $http) {
       $scope.recipes.splice(index, 1);
       $scope.recipeToDelete = null;
     });
+  };
+
+  $scope.updateRecipe = function(recipe) {
+    var updatedRecipe = {
+      title: $scope.editRecipeTitle,
+      link: $scope.editRecipeLink,
+      image_url: $scope.editRecipeImageUrl
+    }
+    $http.put('/recipes/' + recipe.id, updatedRecipe).then(function(response) {
+      var index = $scope.recipes.indexOf(recipe);
+      $scope.recipes[index] = response.data;
+      $scope.recipeToEdit = null;
+    })
   }
 });
