@@ -76,3 +76,26 @@ h2 {
 label {
   font-weight: bold;
 }
+
+.new-recipe-link {
+  position: fixed;
+  top: 0;
+  right: 20px;
+  letter-spacing: 0.2em;
+}
+
+.sidebar-text {
+  display: block;
+  -ms-transform: rotate(-90deg); /* IE 9 */
+  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+  font-size: 12em;
+  margin-top: 500px;
+  left: 20px;
+}
+
+@media (max-width: 1400px) {
+  .pure-menu {
+    display: none;
+  }
+}
