@@ -89,9 +89,13 @@ label {
   -ms-transform: rotate(-90deg); /* IE 9 */
   -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
   transform: rotate(-90deg);
-  font-size: 12em;
+  font-size: 11em;
   margin-top: 500px;
   left: 20px;
+}
+
+.pure-g label {
+  letter-spacing: 0em;
 }
 
 .angular-logo {

@@ -1,26 +1,8 @@
-recipeApp.controller('RecipesController', function($scope, $http, recipeStore) {
+recipeApp.controller('RecipesController', function($scope, recipeService) {
 
-  $scope.recipeStore = recipeStore;
-  $scope.recipes = recipeStore.recipes;
-
-  $scope.getRecipes = function() {
-    console.log('getting recipes...');
-    $http.get('/recipes').then(function(response) {
-      recipeStore.recipes = response.data;
-      console.log(recipeStore.recipes);
-    });
-  };
-
-  $scope.$watch('recipeStore.recipes',function(newValue, oldValue) {
-    console.log($scope.recipeStore);
-    console.log(newValue, oldValue);
-    if(newValue) {
-      $scope.recipes = newValue;
-      console.log($scope.recipes);
-    }
-  }, true);
-
-  $scope.getRecipes();
+  recipeService.getRecipes().then(function(response) {
+    $scope.recipes = response.data;
+  });
 
   $scope.showMeal = "all";
   $scope.sortOrder = "title";
@@ -36,14 +18,31 @@ recipeApp.controller('RecipesController', function($scope, $http, recipeStore) {
        return new Array(n);
   };
 
+  $scope.addRecipe = function() {
+    var recipe = {
+      title: $scope.newRecipeTitle,
+      link: $scope.newRecipeLink,
+      image_url: $scope.newRecipeImageUrl,
+      meal: $scope.newRecipeMeal,
+      rating: $scope.newRecipeRating
+    };
+    recipeService.addRecipe(recipe).then(function(response) {
+      $scope.recipes.push(response.data);
+      $scope.newRecipeTitle = "";
+      $scope.newRecipeLink = "";
+      $scope.newRecipeImageUrl = "";;
+      $scope.newRecipe = false;
+    });
+  };
+
   $scope.confirmDeleteRecipe = function(recipe) {
     $scope.recipeToDelete = recipe;
   };
 
   $scope.deleteRecipe = function(recipe) {
-    $http.delete('/recipes/' + recipe.id).then(function(response) {
-      var index = recipeStore.recipes.indexOf(recipe);
-      recipeStore.recipes.splice(index, 1);
+    recipeService.deleteRecipe(recipe).then(function(response) {
+      var index = $scope.recipes.indexOf(recipe);
+      $scope.recipes.splice(index, 1);
       $scope.recipeToDelete = null;
     });
   };
@@ -54,9 +53,9 @@ recipeApp.controller('RecipesController', function($scope, $http, recipeStore) {
       link: $scope.editRecipeLink,
       image_url: $scope.editRecipeImageUrl
     }
-    $http.put('/recipes/' + recipe.id, updatedRecipe).then(function(response) {
-      var index = recipeStore.recipes.indexOf(recipe);
-      recipeStore.recipes[index] = response.data;
+    recipeService.updateRecipe(recipe.id, updatedRecipe).then(function(response) {
+      var index = $scope.recipes.indexOf(recipe);
+      $scope.recipes[index] = response.data;
       $scope.recipeToEdit = null;
     })
   };

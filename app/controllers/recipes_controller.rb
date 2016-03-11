@@ -10,6 +10,10 @@ class RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def show
+    render nothing: true
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy!
