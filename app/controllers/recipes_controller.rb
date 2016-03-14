@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_filter :load_recipe, only: [:show, :destroy]
 
   def index
     @recipes = Recipe.all
@@ -11,11 +12,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    render nothing: true
+    render json: @recipe
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy!
     render nothing: true
   end
@@ -30,4 +30,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:title, :link, :image_url, :meal, :rating)
   end
 
+  def load_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 end

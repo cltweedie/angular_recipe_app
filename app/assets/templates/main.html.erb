@@ -17,14 +17,14 @@
       <div ng-repeat="recipe in recipes | orderBy:sortOrder" class="pure-u-1 pure-u-md-1-4" ng-if="showMeal == 'all' || showMeal == recipe.meal">
         <div class="recipe">
           <div class="recipe-heading">
-            <a href="{{recipe.link}}"><h2>{{recipe.title}}</h2></a>
+            <a href="#/recipes/{{recipe.id}}"><h2>{{recipe.title}}</h2></a>
             <span ng-repeat="stars in getTimes(recipe.rating) track by $index">
               <%= image_tag "star.png", alt: "star", class: "star" %>
             </span>
             <button ng-click="editRecipe(recipe)" class="pure-button">Edit</button>
             <button ng-click="confirmDeleteRecipe(recipe)" class="pure-button">Delete</button>
           </div>
-          <a href="{{recipe.link}}">
+          <a href="#/recipes/{{recipe.id}}">
             <img class="recipe-image" ng-src="{{recipe.image_url}}" alt="{{recipe.title}}" />
           </a>
         </div>

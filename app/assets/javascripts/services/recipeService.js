@@ -5,6 +5,10 @@ recipeApp.service('recipeService', function($http) {
     return $http.get('/recipes');
   };
 
+  var getRecipe = function(id) {
+    return $http.get('/recipes/' + id);
+  };
+
   var addRecipe = function(recipe) {
     return $http.post('/recipes', recipe);
   };
@@ -20,6 +24,7 @@ recipeApp.service('recipeService', function($http) {
   return {
     recipes: recipes,
     getRecipes: getRecipes,
+    getRecipe: getRecipe,
     addRecipe: addRecipe,
     deleteRecipe: deleteRecipe,
     updateRecipe: updateRecipe
