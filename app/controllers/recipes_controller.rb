@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_filter :load_recipe, only: [:show, :destroy]
+  before_filter :authenticate_user!, only: [:create, :update, :destroy]
 
   def index
     @recipes = Recipe.all

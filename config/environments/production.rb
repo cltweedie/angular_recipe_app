@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.action_mailer.default_url_options = { host: 'angular-recipe-app.heroku.com', port: 3000 }
   # Code is not reloaded between requests.
   config.cache_classes = true
 

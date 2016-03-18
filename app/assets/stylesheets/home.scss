@@ -9,6 +9,14 @@ body {
   top: 0;
   bottom: 0;
   width: 10%;
+  .login-form {
+    margin-top: 50px;
+    input {
+      width: 90%;
+      margin-bottom: 10px;
+      color: black;
+    }
+  }
 }
 
 ul {

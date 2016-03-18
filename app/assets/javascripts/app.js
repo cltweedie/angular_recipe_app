@@ -1,4 +1,4 @@
-var recipeApp = angular.module('recipeApp', ['ngRoute', 'templates']);
+var recipeApp = angular.module('recipeApp', ['ngRoute', 'templates', 'Devise']);
 
 recipeApp.config(function($routeProvider) {
   $routeProvider

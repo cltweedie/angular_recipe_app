@@ -13,6 +13,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "pure-css-rails"
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
+gem 'devise'
+
+source "https://rails-assets.org" do
+  gem "rails-assets-angular-devise"
+end
 
 group :development, :test do
   gem 'pry-byebug'

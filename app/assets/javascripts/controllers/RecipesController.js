@@ -1,4 +1,4 @@
-recipeApp.controller('RecipesController', function($scope, recipeService) {
+recipeApp.controller('RecipesController', function($scope, $rootScope, recipeService) {
 
   recipeService.getRecipes().then(function(response) {
     $scope.recipes = response.data;
@@ -59,4 +59,8 @@ recipeApp.controller('RecipesController', function($scope, recipeService) {
       $scope.recipeToEdit = null;
     });
   };
+
+  $scope.$on('LOGGED_IN', function(response) {
+    $scope.user = response;
+  })
 });
