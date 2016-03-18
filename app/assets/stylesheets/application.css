@@ -11,6 +11,7 @@
  * file per style scope.
  *= require pure
  *= require grids-responsive
+ *= require toastr
  *= require_tree .
  *= require_self
  */

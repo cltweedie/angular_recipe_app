@@ -1,5 +1,5 @@
 <div class="pure-g">
-    <div class="pure-u-1-8 pure-hidden-sm pure-hidden-xs" ng-controller="NavController">
+    <div class="pure-u-1-5 pure-hidden-sm pure-hidden-xs" ng-controller="NavController">
       <div id="menu" class="pure-menu">
         <span class="pure-menu-heading">Recipes</span>
           <ul class="pure-menu-list">
@@ -14,9 +14,10 @@
             </li>
             <!-- <li class="pure-menu-item"><a href="#/recipes/new" class="pure-menu-link">New Recipe</a></li> -->
           </ul>
-          <form ng-hide="signedIn()" ng-submit="login()" class="pure-form login-form">
+          <form ng-hide="signedIn()" ng-submit="login()" class="pure-form pure-form-stacked login-form">
             <label>Sign In</label>
-            <input class="mt" type="text" placeholder="Email" ng-model="user.email" />
+            <br>
+            <input type="text" placeholder="Email" ng-model="user.email" />
             <input type="password" placeholder="Password" ng-model="user.password" />
             <button type="submit" class="pure-button">Log In</button>
           </form>
@@ -24,6 +25,6 @@
       </div>
     </div>
 
-  <div ng-view class="pure-u-7-8"></div>
+  <div ng-view class="pure-u-4-5"></div>
 </div>
 

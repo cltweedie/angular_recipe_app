@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require toastr
 //= require angular
 //= require angular-route
 //= require angular-devise

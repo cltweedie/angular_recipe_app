@@ -67,7 +67,7 @@
   </div>
 </div>
 
-<button class="new-recipe-link pure-button" ng-click="newRecipe = true">New Recipe</button>
+<button class="new-recipe-link pure-button" ng-show="user" ng-click="newRecipe = true">New Recipe</button>
 
 <div ng-show="newRecipe" class="modal-background">
   <div class="modal">

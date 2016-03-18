@@ -62,5 +62,9 @@ recipeApp.controller('RecipesController', function($scope, $rootScope, recipeSer
 
   $scope.$on('LOGGED_IN', function(response) {
     $scope.user = response;
-  })
+  });
+
+  $scope.$on('LOGGED_OUT', function(response) {
+    $scope.user = false;
+  });
 });

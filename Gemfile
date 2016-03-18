@@ -14,6 +14,7 @@ gem "pure-css-rails"
 gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'devise'
+gem 'toastr-rails'
 
 source "https://rails-assets.org" do
   gem "rails-assets-angular-devise"
