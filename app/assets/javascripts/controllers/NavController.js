@@ -20,10 +20,15 @@ recipeApp.controller('NavController', function($scope, $rootScope, Auth) {
     });
 
     $scope.login = function() {
-        Auth.login($scope.user).then(function(data) {
-          $rootScope.$broadcast('LOGGED_IN', $scope.user);
-          toastr.success('You have successfully logged in!', 'Welcome back');
-        });
+        Auth.login($scope.user)
+          .then(function(data) {
+            console.log(data);
+            $rootScope.$broadcast('LOGGED_IN', $scope.user);
+            toastr.success('You have successfully logged in!', 'Welcome back');
+          })
+          .catch(function() {
+            toastr.error('Username or password incorrect!', 'Nope');
+          });
       };
 
     $scope.logout = function() {

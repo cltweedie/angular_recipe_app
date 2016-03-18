@@ -2,11 +2,22 @@ body {
   color: #2E2E2E;
 }
 
+.icon {
+  font-size: 1.5em;
+}
+
 #menu {
   background-color: #191818;
   color: white;
   min-height: 2000px;
   width: 90%;
+  .pure-menu-link {
+    color: #FAFAFA;
+    &:hover {
+      color: #191818;
+      background-color: #D8D8D8;
+    }
+  }
   .login-form {
     margin: 50px auto;
     width: 80%;

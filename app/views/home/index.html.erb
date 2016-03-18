@@ -2,9 +2,18 @@
     <div class="pure-u-1-5 pure-hidden-sm pure-hidden-xs" ng-controller="NavController">
       <div id="menu" class="pure-menu">
         <span class="pure-menu-heading">Recipes</span>
-          <ul class="pure-menu-list">
+          <ul class="pure-menu-list mt">
             <li class="pure-menu-item">
               <a href="#/recipes" class="pure-menu-link">All Recipes</a>
+            </li>
+            <li ng-show="signedIn()" class="pure-menu-item">
+              <a href="#/recipes/mine" class="pure-menu-link">My Recipes</a>
+            </li>
+            <li ng-show="signedIn()" class="pure-menu-item">
+              <a href="" class="pure-menu-link">
+                <span class="icon">+</span>
+                  Add Recipe
+                </a>
             </li>
             <li ng-hide="signedIn()" class="pure-menu-item">
               <a href="" class="pure-menu-link">Register</a>
