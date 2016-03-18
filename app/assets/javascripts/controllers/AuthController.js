@@ -1,4 +1,4 @@
-recipeApp.controller('NavController', function($scope, $rootScope, Auth) {
+recipeApp.controller('AuthController', function($scope, $rootScope, $location, Auth) {
 
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
@@ -39,7 +39,7 @@ recipeApp.controller('NavController', function($scope, $rootScope, Auth) {
     };
 
     $scope.register = function() {
-      Auth.register($scope.user).then(function(){
+      Auth.register($scope.user).then(function(data){
         $location.path('recipes');
       });
     };

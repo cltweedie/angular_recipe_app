@@ -14,5 +14,9 @@ recipeApp.config(function($routeProvider) {
       templateUrl: 'show_recipe.html',
       controller: 'ShowRecipeController'
     })
+    .when('/register', {
+      templateUrl: 'register.html',
+      controller: 'AuthController'
+    })
     .otherwise({redirectTo: '/recipes'});
 });

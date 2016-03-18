@@ -1,5 +1,5 @@
 <div class="pure-g">
-    <div class="pure-u-1-5 pure-hidden-sm pure-hidden-xs" ng-controller="NavController">
+    <div class="pure-u-1-5 pure-hidden-sm pure-hidden-xs" ng-controller="AuthController">
       <div id="menu" class="pure-menu">
         <span class="pure-menu-heading">Recipes</span>
           <ul class="pure-menu-list mt">
@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li ng-hide="signedIn()" class="pure-menu-item">
-              <a href="" class="pure-menu-link">Register</a>
+              <a href="#/register" class="pure-menu-link">Register</a>
             </li>
             <li ng-show="signedIn()" class="pure-menu-item">
               <a href="" class="pure-menu-link" ng-click="logout()">Log Out</a>
