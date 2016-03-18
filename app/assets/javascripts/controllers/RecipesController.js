@@ -1,6 +1,7 @@
 recipeApp.controller('RecipesController', function($scope, $rootScope, recipeService) {
 
   recipeService.getRecipes().then(function(response) {
+    console.log(response.data);
     $scope.recipes = response.data;
   });
 
