@@ -1,3 +1,7 @@
+body {
+  color: #2E2E2E;
+}
+
 #menu {
   background-color: #191818;
   color: white;
@@ -9,6 +13,7 @@
 
 ul {
   list-style: none;
+  -webkit-padding-start: 0;
 }
 
 .recipe-image {
@@ -29,14 +34,10 @@ h2 {
   width: 90%;
 }
 
-.recipe {
-
-}
-
 .recipe-heading {
   padding: 5px;
   height: 100px;
-  background-color: #D8D8D8;
+  background-color: #E6E6E6;
   text-align: center;
 }
 
@@ -63,6 +64,40 @@ h2 {
   margin: 0.3rem 0.5rem;
 }
 
+// #show-recipe > div > * {
+//   margin: 1.5rem;
+// }
+
+#show-recipe {
+  h2 {
+    margin-left: 20px;
+  }
+  .ingredients {
+    .ingredient-list {
+      background-color: #FAFAFA;
+    }
+    margin-left: 50px;
+    margin-top: 80px;
+    .ingredient {
+      padding: 8px;
+      &:nth-child(odd) {
+        background: #E6E6E6;
+      }
+    }
+  }
+  .step {
+    padding: 10px 0;
+    font-size: 2em;
+    font-weight: bold;
+    color: #BDBDBD;
+    p {
+      font-size: 16px;
+      font-weight: normal;
+      color: #2E2E2E;
+    }
+  }
+}
+
 .star {
   width: 20px;
 }
@@ -73,8 +108,9 @@ h2 {
   border: none;
 }
 
-label {
+label, .pure-form label {
   font-weight: bold;
+  margin-right: 5px;
 }
 
 .new-recipe-link {
@@ -84,19 +120,22 @@ label {
   letter-spacing: 0.2em;
 }
 
-.sidebar-text {
-  display: block;
-  -ms-transform: rotate(-90deg); /* IE 9 */
-  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
-  transform: rotate(-90deg);
-  font-size: 11em;
-  margin-top: 500px;
-  left: 20px;
+.pure-menu {
+  text-align: center;
 }
 
-.pure-g label, .modal p {
-  letter-spacing: 0em;
+.pure-menu-heading {
+  font-size: 1.6em;
+  color: white;
 }
+
+.recipe-image-large {
+  border: #D8D8D8 solid 5px;
+}
+
+// .pure-g label, .modal p {
+//   letter-spacing: 0em;
+// }
 
 .angular-logo {
   width: 100%;
@@ -107,3 +146,18 @@ label {
     display: none;
   }
 }
+
+@media (max-width: 767px) {
+  #show-recipe .ingredients {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  .recipe-instructions {
+  padding: 0;
+    .step {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+

@@ -1,0 +1,101 @@
+  <!-- Recipes -->
+  <div class="pure-g mt">
+    <div class="pure-u-1-1 pure-u-md-1-2">
+      <div class="pure-u-1 mt">
+        <label>Order by</label>
+        <button class="pure-button" ng-click="sortOrder = 'title'" ng-class='{"pure-button-active": sortOrder == "title"}'>Title</button>
+        <button class="pure-button" ng-click="sortOrder = '-rating'" ng-class='{"pure-button-active": sortOrder == "-rating"}'>Rating</button>
+      </div>
+
+      <div class="pure-u-1 mt">
+        <label>Show</label>
+        <button class="pure-button" ng-click="showMeal = 'all'" ng-class='{"pure-button-active": showMeal == "all"}'>All</button>
+        <button class="pure-button" ng-click="showMeal = 'Breakfast'" ng-class='{"pure-button-active": showMeal == "Breakfast"}'>Breakfast</button>
+        <button class="pure-button" ng-click="showMeal = 'Lunch'" ng-class='{"pure-button-active": showMeal == "Lunch"}'>Lunch</button>
+        <button class="pure-button" ng-click="showMeal = 'Dinner'" ng-class='{"pure-button-active": showMeal == "Dinner"}'>Dinner</button>
+        <button class="pure-button" ng-click="showMeal = 'Dessert'" ng-class='{"pure-button-active": showMeal == "Dessert"}'>Dessert</button>
+      </div>
+    </div>
+
+    <div class="pure-form pure-u-1-1 pure-u-md-1-2 mt">
+      <label for="search">Search</label>
+      <input name="search" ng-model="searchTerm" ng-change="filterResults()" />
+    </div>
+
+    <section id="recipes">
+      <div ng-repeat="recipe in recipes | filter:{title: searchTerm} | orderBy:sortOrder" class="pure-u-1 pure-u-md-1-4" ng-if="showMeal == 'all' || showMeal == recipe.meal">
+        <div class="recipe">
+          <div class="recipe-heading">
+            <a href="#/recipes/{{recipe.id}}"><h2>{{recipe.title}}</h2></a>
+            <span ng-repeat="stars in getTimes(recipe.rating) track by $index">
+              <%= image_tag "star.png", alt: "star", class: "star" %>
+            </span>
+            <button ng-click="editRecipe(recipe)" class="pure-button button-dark">Edit</button>
+            <button ng-click="confirmDeleteRecipe(recipe)" class="pure-button button-dark">Delete</button>
+          </div>
+          <a href="#/recipes/{{recipe.id}}">
+            <img class="recipe-image" ng-src="{{recipe.image_url}}" alt="{{recipe.title}}" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+</div>
+
+<div ng-show="recipeToEdit" class="modal-background">
+  <div class="modal">
+    <form class="pure-form pure-form-stacked">
+      <label for="edit-title">Title</label>
+      <input name="edit-title" type="text" value="{{recipeToEdit.title}}" ng-model="editRecipeTitle" class="pure-input-1 mb"/>
+      <label for="edit-link">Link</label>
+      <input name="edit-link" type="text" value="{{recipeToEdit.link}}" ng-model="editRecipeLink" class="pure-input-1 mb"/>
+      <label for="edit-image-url">Image URL</label>
+      <input name="edit-image-url" type="text" value="{{recipeToEdit.image_url}}" ng-model="editRecipeImageUrl" class="pure-input-1 mb"/>
+      <button class="pure-button" ng-click="updateRecipe(recipeToEdit)">Save</button>
+      <button class="pure-button button-secondary" ng-click="recipeToEdit = null">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<div ng-show="recipeToDelete" class="modal-background">
+  <div class="modal">
+    <p>Are you sure you want to delete this recipe?</p>
+
+    <button class="pure-button button-error" ng-click="deleteRecipe(recipeToDelete)">Confirm</button>
+    <button class="pure-button button-secondary" ng-click="recipeToDelete = null">Cancel</button>
+  </div>
+</div>
+
+<button class="new-recipe-link pure-button" ng-click="newRecipe = true">New Recipe</button>
+
+<div ng-show="newRecipe" class="modal-background">
+  <div class="modal">
+    <form ng-submit="addRecipe()" class="pure-form pure-form-stacked pure-u-1">
+      <label for="title">Title</label>
+      <input name="title" type="text" ng-model="newRecipeTitle" class="pure-u-1" />
+      <label for="link">Link</label>
+      <input name="link" type="text" ng-model="newRecipeLink" class="pure-u-1"/>
+      <label for="image_url">Image URL</label>
+      <input name="image_url" type="text" ng-model="newRecipeImageUrl" class="pure-u-1"/>
+      <label for="meal">Meal</label>
+      <select name="meal" ng-model="newRecipeMeal" class="pure-u-1">
+        <option>Breakfast</option>
+        <option>Lunch</option>
+        <option>Dinner</option>
+        <option>Dessert</option>
+      </select>
+      <label for="rating">Rating</label>
+      <select name="rating" ng-model="newRecipeRating" class="pure-u-1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <button type="submit" class="pure-button mt">Add</button>
+    </form>
+    <button ng-click="newRecipe = false" class="pure-button button-secondary mt">Cancel</button>
+  </div>
+</div>
+

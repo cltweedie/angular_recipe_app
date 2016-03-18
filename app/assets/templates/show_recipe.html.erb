@@ -1,5 +1,25 @@
-<section>
-  <div>
-    <h1>Show Recipe</h1>
+<section id="show-recipe" class="pure-g">
+  <div class="pure-u-1-1 pure-u-md-1-3">
+    <h1>{{recipe.title}}
+    <span ng-repeat="stars in getTimes(recipe.rating) track by $index">
+      <%= image_tag "star.png", alt: "star", class: "star" %>
+    </span>
+    </h1>
+    <img class="recipe-image recipe-image-large" ng-src="{{recipe.image_url}}" alt="{{recipe.title}}"/>
+  </div>
+  <div class="pure-u-1-1 pure-u-md-1-3 ingredients">
+    <ul class="ingredient-list">
+      <li ng-repeat="ingredient in ingredients" class="ingredient">
+        {{ingredient.description}}
+      </li>
+    </ul>
+  </div>
+  <div class="pure-u-1 pure-u-md-2-3 recipe-instructions">
+    <h2>Steps</h2>
+    <ol>
+      <li ng-repeat="step in steps" class="step">
+        <p>{{step.instruction}}</p>
+      </li>
+    </ol>
   </div>
 </section>

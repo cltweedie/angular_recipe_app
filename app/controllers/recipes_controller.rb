@@ -12,7 +12,13 @@ class RecipesController < ApplicationController
   end
 
   def show
-    render json: @recipe
+    @steps = Step.where(recipe: @recipe)
+    @ingredients = Ingredient.where(recipe: @recipe)
+    render json: {
+                    recipe: @recipe,
+                    steps: @steps,
+                    ingredients: @ingredients
+                  }
   end
 
   def destroy

@@ -30,7 +30,7 @@ recipeApp.controller('RecipesController', function($scope, recipeService) {
       $scope.recipes.push(response.data);
       $scope.newRecipeTitle = "";
       $scope.newRecipeLink = "";
-      $scope.newRecipeImageUrl = "";;
+      $scope.newRecipeImageUrl = "";
       $scope.newRecipe = false;
     });
   };
@@ -52,11 +52,11 @@ recipeApp.controller('RecipesController', function($scope, recipeService) {
       title: $scope.editRecipeTitle,
       link: $scope.editRecipeLink,
       image_url: $scope.editRecipeImageUrl
-    }
+    };
     recipeService.updateRecipe(recipe.id, updatedRecipe).then(function(response) {
       var index = $scope.recipes.indexOf(recipe);
       $scope.recipes[index] = response.data;
       $scope.recipeToEdit = null;
-    })
+    });
   };
 });

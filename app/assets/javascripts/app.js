@@ -3,12 +3,16 @@ var recipeApp = angular.module('recipeApp', ['ngRoute', 'templates']);
 recipeApp.config(function($routeProvider) {
   $routeProvider
     .when('/recipes', {
-      templateUrl: 'main.html',
+      templateUrl: 'all_recipes.html',
       controller: 'RecipesController'
+    })
+    .when('/recipes/new', {
+      templateUrl: 'new_recipe.html',
+      controller: 'NewRecipeController'
     })
     .when('/recipes/:id', {
       templateUrl: 'show_recipe.html',
       controller: 'ShowRecipeController'
     })
-    .otherwise({redirectTo: '/recipes'})
+    .otherwise({redirectTo: '/recipes'});
 });
