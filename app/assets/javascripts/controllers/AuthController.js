@@ -40,6 +40,7 @@ recipeApp.controller('AuthController', function($scope, $rootScope, $location, A
 
     $scope.register = function() {
       Auth.register($scope.user).then(function(data){
+        $rootScope.$broadcast('LOGGED_IN', $scope.user);
         toastr.success('You have successfully signed up!', 'Welcome');
         $location.path('recipes');
       });
