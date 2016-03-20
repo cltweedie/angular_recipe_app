@@ -1,9 +1,14 @@
 class RecipesController < ApplicationController
   before_filter :load_recipe, only: [:show, :destroy]
-  before_filter :authenticate_user!, only: [:create, :update, :destroy]
+  before_filter :authenticate_user!, only: [:create, :update, :mine, :destroy]
 
   def index
     @recipes = Recipe.all
+    render json: @recipes
+  end
+
+  def mine
+    @recipes = Recipe.where(user_id: params[:user_id])
     render json: @recipes
   end
 
@@ -15,10 +20,12 @@ class RecipesController < ApplicationController
   def show
     @steps = Step.where(recipe: @recipe)
     @ingredients = Ingredient.where(recipe: @recipe)
+    @user = User.find(@recipe.user_id)
     render json: {
                     recipe: @recipe,
                     steps: @steps,
-                    ingredients: @ingredients
+                    ingredients: @ingredients,
+                    user_email: @user.email
                   }
   end
 
@@ -34,7 +41,7 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :link, :image_url, :meal, :rating)
+    params.require(:recipe).permit(:title, :link, :image_url, :meal, :rating, :user_id)
   end
 
   def load_recipe

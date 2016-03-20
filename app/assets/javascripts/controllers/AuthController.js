@@ -5,6 +5,7 @@ recipeApp.controller('AuthController', function($scope, $rootScope, $location, A
 
   Auth.currentUser().then(function(user) {
     $scope.user = user;
+    $rootScope.$broadcast('LOGGED_IN', $scope.user);
   });
 
   $scope.$on('devise:new-registration', function (e, user){

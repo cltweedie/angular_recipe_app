@@ -4,7 +4,7 @@ recipeApp.controller('ShowRecipeController', function($scope, recipeService, $ro
     $scope.recipe = response.data.recipe;
     $scope.steps = response.data.steps;
     $scope.ingredients = response.data.ingredients;
-    console.log(response.data);
+    $scope.userEmail = response.data.user_email;
   });
 
   $scope.getTimes = function(n){

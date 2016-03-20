@@ -1,9 +1,15 @@
-recipeApp.controller('RecipesController', function($scope, $rootScope, recipeService) {
+recipeApp.controller('RecipesController', function($scope, $rootScope, $location, recipeService) {
 
-  recipeService.getRecipes().then(function(response) {
-    console.log(response.data);
-    $scope.recipes = response.data;
-  });
+  if ($location.path() == '/recipes/mine') {
+    console.log('my recipes');
+    recipeService.getMyRecipes().then(function(response) {
+      $scope.recipes = response.data;
+    });
+  } else {
+    recipeService.getRecipes().then(function(response) {
+      $scope.recipes = response.data;
+    });
+  }
 
   $scope.showMeal = "all";
   $scope.sortOrder = "title";
@@ -61,11 +67,11 @@ recipeApp.controller('RecipesController', function($scope, $rootScope, recipeSer
     });
   };
 
-  $scope.$on('LOGGED_IN', function(response) {
-    $scope.user = response;
+  $scope.$on('LOGGED_IN', function(event, data) {
+    $scope.user = data;
   });
 
-  $scope.$on('LOGGED_OUT', function(response) {
+  $scope.$on('LOGGED_OUT', function(event, data) {
     $scope.user = false;
   });
 });

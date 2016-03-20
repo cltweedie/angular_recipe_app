@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/main', controller: :home
 
+  get 'recipes/mine', controller: :recipes
+
   resources :recipes
 
   # Example of regular route:

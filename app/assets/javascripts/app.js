@@ -6,6 +6,10 @@ recipeApp.config(function($routeProvider) {
       templateUrl: 'all_recipes.html',
       controller: 'RecipesController'
     })
+    .when('/recipes/mine', {
+      templateUrl: 'my_recipes.html',
+      controller: 'RecipesController'
+    })
     .when('/recipes/new', {
       templateUrl: 'new_recipe.html',
       controller: 'NewRecipeController'

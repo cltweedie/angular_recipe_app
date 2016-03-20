@@ -7,11 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 @recipe1 = Recipe.create(
-  title: "Cauliflower and Spinach Pasta Bake",
+  title: "Cauliflower and Spinach Pasta",
   link: "http://www.bbcgoodfood.com/recipes/166618/cauliflower-cheese-and-spinach-pasta-bakes",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/recipe-image-legacy-id--424655_11.jpg?itok=fAEOmPAx",
   meal: "Dinner",
-  rating: 4
+  rating: 4,
+  user_id: 1
 )
 
 @recipe1.ingredients << Ingredient.create!(description: "850ml milk")
@@ -39,7 +40,8 @@
   link: "http://www.bbcgoodfood.com/recipes/1223/bestever-brownies",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1001464_11.jpg?itok=Va_PfXJj",
   meal: "Dessert",
-  rating: 5
+  rating: 5,
+  user_id: 1
 )
 
 @recipe2.ingredients << Ingredient.create!(description: "185g unsalted butter")
@@ -65,7 +67,8 @@
   link: "http://www.bbcgoodfood.com/recipes/1572643/sams-toad-in-the-hole",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--736458_11.jpg?itok=x-pnYsyr",
   meal: "Dinner",
-  rating: 3
+  rating: 3,
+  user_id: 2
 )
 
 @recipe3.ingredients << Ingredient.create!(description: "12 chipolata")
@@ -84,7 +87,8 @@
   link: "http://www.bbcgoodfood.com/recipes/wild-garlic-chicken-kiev",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/wild-garlic-chicken-kiev.jpg?itok=IhLpGrzG",
   meal: "Dinner",
-  rating: 3
+  rating: 3,
+  user_id: 2
 )
 
 @recipe4.ingredients << Ingredient.create!(description: "4 skinless chicken breasts")
@@ -105,7 +109,8 @@
   link: "http://www.bbcgoodfood.com/recipes/10418/the-great-breakfast-burger",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1075571_11.jpg?itok=cMxEmQHr",
   meal: "Breakfast",
-  rating: 2
+  rating: 2,
+  user_id: 3
 )
 
 @recipe5.ingredients << Ingredient.create!(description: "1 medium onion, roughly chopped")
@@ -129,7 +134,8 @@
   link: "http://www.bbcgoodfood.com/recipes/1363639/club-sandwich",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--653594_11.jpg?itok=9trM5bYp",
   meal: "Lunch",
-  rating: 4
+  rating: 4,
+  user_id: 3
 )
 
 @recipe6.ingredients << Ingredient.create!(description: "4 rashers streaky bacon")
@@ -149,7 +155,8 @@
   link: "http://www.bbcgoodfood.com/recipes/775644/allday-breakfast",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--401479_12.jpg?itok=HoJZsfz5",
   meal: "Breakfast",
-  rating: 2
+  rating: 2,
+  user_id: 3
 )
 
 @recipe7.ingredients << Ingredient.create!(description: "1 pack chipolata sausages")
@@ -168,7 +175,8 @@
   link: "http://www.bbcgoodfood.com/recipes/1729/ultimate-scones",
   image_url: "http://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1445_12.jpg?itok=_GLow320",
   meal: "Dessert",
-  rating: 1
+  rating: 1,
+  user_id: 1
 )
 
 @recipe8.ingredients << Ingredient.create!(description: "225g self-raising flour")

@@ -2,6 +2,15 @@ body {
   color: #2E2E2E;
 }
 
+.pure-form, .pure-form-stacked {
+  input[type="text"],
+  select {
+    border-radius: 0;
+    border: solid #BDBDBD 1px;
+    margin-bottom: 10px;
+  }
+}
+
 .icon {
   font-size: 1.5em;
 }
@@ -95,7 +104,6 @@ h2 {
       background-color: #FAFAFA;
     }
     margin-left: 50px;
-    margin-top: 80px;
     .ingredient {
       padding: 8px;
       &:nth-child(odd) {
@@ -149,6 +157,12 @@ label, .pure-form label {
 
 .recipe-image-large {
   border: #D8D8D8 solid 5px;
+}
+
+.added-by {
+  float: right;
+  margin-top: 30px;
+  font-weight: bold;
 }
 
 // .pure-g label, .modal p {

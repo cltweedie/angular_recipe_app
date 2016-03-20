@@ -1,13 +1,20 @@
 <section id="show-recipe" class="pure-g">
-  <div class="pure-u-1-1 pure-u-md-1-3">
-    <h1>{{recipe.title}}
-    <span ng-repeat="stars in getTimes(recipe.rating) track by $index">
-      <%= image_tag "star.png", alt: "star", class: "star" %>
-    </span>
-    </h1>
+  <div class="pure-u-1">
+    <div class="pure-u-1 pure-u-md-1-3">
+      <h1>{{recipe.title}}
+        <span ng-repeat="stars in getTimes(recipe.rating) track by $index">
+          <%= image_tag "star.png", alt: "star", class: "star" %>
+        </span>
+      </h1>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-3">
+      <p class="added-by">Added by {{userEmail}}</p>
+    </div>
+  </div>
+  <div class="pure-u-1 pure-u-md-1-3">
     <img class="recipe-image recipe-image-large" ng-src="{{recipe.image_url}}" alt="{{recipe.title}}"/>
   </div>
-  <div class="pure-u-1-1 pure-u-md-1-3 ingredients">
+  <div class="pure-u-1 pure-u-md-1-3 ingredients">
     <ul class="ingredient-list">
       <li ng-repeat="ingredient in ingredients" class="ingredient">
         {{ingredient.description}}
