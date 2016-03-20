@@ -1,10 +1,18 @@
 recipeApp.controller('RecipesController', function($scope, $rootScope, $location, recipeService) {
 
   if ($location.path() == '/recipes/mine') {
-    console.log('my recipes');
-    recipeService.getMyRecipes().then(function(response) {
-      $scope.recipes = response.data;
-    });
+    if ($rootScope.userId) {
+      recipeService.getMyRecipes($rootScope.userId).then(function(response) {
+        $scope.recipes = response.data;
+      });
+    } else {
+      $scope.$on('LOGGED_IN', function(event, data) {
+        $scope.user = data;
+        recipeService.getMyRecipes($scope.user.id).then(function(response) {
+          $scope.recipes = response.data;
+        });
+      });
+    }
   } else {
     recipeService.getRecipes().then(function(response) {
       $scope.recipes = response.data;

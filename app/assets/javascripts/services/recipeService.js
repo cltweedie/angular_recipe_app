@@ -6,11 +6,11 @@ recipeApp.service('recipeService', function($http, $rootScope) {
     return $http.get('/recipes');
   };
 
-  var getMyRecipes = function() {
+  var getMyRecipes = function(userId) {
     return $http({
       url: '/recipes/mine',
       method: 'GET',
-      params: { user_id: user.id }
+      params: { user_id: userId }
     });
   };
 
