@@ -5,7 +5,6 @@ recipeApp.controller('AuthController', function($scope, $rootScope, $location, A
 
   Auth.currentUser().then(function(user) {
     $scope.user = user;
-    $rootScope.$broadcast('LOGGED_IN', $scope.user);
   });
 
   $scope.$on('devise:new-registration', function (e, user){
@@ -23,7 +22,7 @@ recipeApp.controller('AuthController', function($scope, $rootScope, $location, A
 
     $scope.$on('devise:logout', function (e, user){
       $scope.user = {};
-      $rootScope.$broadcast('LOGGED_OUT', true);
+      $rootScope.$broadcast('LOGGED_OUT', false);
       $rootScope.userId = null;
     });
 

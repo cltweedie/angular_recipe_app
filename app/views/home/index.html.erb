@@ -24,8 +24,6 @@
             <!-- <li class="pure-menu-item"><a href="#/recipes/new" class="pure-menu-link">New Recipe</a></li> -->
           </ul>
           <form ng-hide="signedIn()" ng-submit="login()" class="pure-form pure-form-stacked login-form">
-            <label>Sign In</label>
-            <br>
             <input type="text" placeholder="Email" ng-model="user.email" />
             <input type="password" placeholder="Password" ng-model="user.password" />
             <button type="submit" class="pure-button">Log In</button>

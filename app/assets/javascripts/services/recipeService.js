@@ -18,9 +18,9 @@ recipeApp.service('recipeService', function($http, $rootScope) {
     return $http.get('/recipes/' + id);
   };
 
-  var addRecipe = function(recipe) {
-    recipe.user_id = user.id;
-    return $http.post('/recipes', recipe);
+  var addRecipe = function(data) {
+    data.recipe.user_id = user.id;
+    return $http.post('/recipes', data);
   };
 
   var deleteRecipe = function(recipe) {

@@ -5,14 +5,16 @@ recipeApp.controller('RecipesController', function($scope, $rootScope, $location
       recipeService.getMyRecipes($rootScope.userId).then(function(response) {
         $scope.recipes = response.data;
       });
-    } else {
-      $scope.$on('LOGGED_IN', function(event, data) {
-        $scope.user = data;
-        recipeService.getMyRecipes($scope.user.id).then(function(response) {
-          $scope.recipes = response.data;
-        });
-      });
     }
+    $scope.$on('LOGGED_IN', function(event, data) {
+      $scope.user = data;
+      recipeService.getMyRecipes($scope.user.id).then(function(response) {
+        $scope.recipes = response.data;
+      });
+    });
+    $scope.$on('LOGGED_OUT', function(event, data) {
+      $scope.user = false;
+    });
   } else {
     recipeService.getRecipes().then(function(response) {
       $scope.recipes = response.data;
@@ -74,12 +76,4 @@ recipeApp.controller('RecipesController', function($scope, $rootScope, $location
       $scope.recipeToEdit = null;
     });
   };
-
-  $scope.$on('LOGGED_IN', function(event, data) {
-    $scope.user = data;
-  });
-
-  $scope.$on('LOGGED_OUT', function(event, data) {
-    $scope.user = false;
-  });
 });
