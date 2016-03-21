@@ -27,11 +27,22 @@
     </fieldset>
 
     <fieldset>
+      <label>Ingredients</label>
       <div ng-repeat="ingredient in recipe.ingredients_attributes track by $index">
         <input type="text" ng-model="ingredient.description" />
       </div>
       <span ng-click="newIngredientBox()" class="pure-button">Add Ingredient</span>
     </fieldset>
+
+    <fieldset>
+      <label>Steps</label>
+      <div ng-repeat="step in recipe.steps_attributes track by $index">
+        <label>{{$index + 1}}</label>
+        <input type="text" ng-model="step.instruction" />
+      </div>
+      <span ng-click="newStepBox()" class="pure-button">Add Step</span>
+    </fieldset>
+
     <button type="submit" class="pure-button mt">Add</button>
   </form>
 </div>

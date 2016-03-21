@@ -1,7 +1,8 @@
 recipeApp.controller('NewRecipeController', function($scope, $location, recipeService) {
 
   $scope.recipe = {
-    ingredients_attributes: []
+    ingredients_attributes: [],
+    steps_attributes: []
   };
 
   $scope.addRecipe = function() {
@@ -13,6 +14,10 @@ recipeApp.controller('NewRecipeController', function($scope, $location, recipeSe
 
   $scope.newIngredientBox = function() {
     $scope.recipe.ingredients_attributes.push({description: ""});
+  };
+
+  $scope.newStepBox = function() {
+    $scope.recipe.steps_attributes.push({instruction: ""});
   };
 
 });
