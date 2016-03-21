@@ -18,6 +18,10 @@ recipeApp.config(function($routeProvider) {
       templateUrl: 'show_recipe.html',
       controller: 'ShowRecipeController'
     })
+    .when('/recipes/:id/edit', {
+      templateUrl: 'edit_recipe.html',
+      controller: 'EditRecipeController'
+    })
     .when('/register', {
       templateUrl: 'register.html',
       controller: 'AuthController'

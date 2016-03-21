@@ -21,12 +21,12 @@ class RecipesController < ApplicationController
     @steps = Step.where(recipe: @recipe)
     @ingredients = Ingredient.where(recipe: @recipe)
     @user = User.find(@recipe.user_id)
-    render json: {
-                    recipe: @recipe,
-                    steps: @steps,
-                    ingredients: @ingredients,
-                    user_email: @user.email
-                  }
+    # render json: {
+    #                 recipe: @recipe,
+    #                 steps: @steps,
+    #                 ingredients: @ingredients,
+    #                 user_email: @user.email
+    #               }
   end
 
   def destroy
@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.update(params[:id], recipe_params)
+    @recipe = Recipe.update(params[:recipe][:id], recipe_params)
     render json: @recipe
   end
 

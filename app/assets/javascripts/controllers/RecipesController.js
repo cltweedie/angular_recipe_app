@@ -35,23 +35,6 @@ recipeApp.controller('RecipesController', function($scope, $rootScope, $location
        return new Array(n);
   };
 
-  $scope.addRecipe = function() {
-    var recipe = {
-      title: $scope.newRecipeTitle,
-      link: $scope.newRecipeLink,
-      image_url: $scope.newRecipeImageUrl,
-      meal: $scope.newRecipeMeal,
-      rating: $scope.newRecipeRating
-    };
-    recipeService.addRecipe(recipe).then(function(response) {
-      $scope.recipes.push(response.data);
-      $scope.newRecipeTitle = "";
-      $scope.newRecipeLink = "";
-      $scope.newRecipeImageUrl = "";
-      $scope.newRecipe = false;
-    });
-  };
-
   $scope.confirmDeleteRecipe = function(recipe) {
     $scope.recipeToDelete = recipe;
   };
@@ -61,19 +44,6 @@ recipeApp.controller('RecipesController', function($scope, $rootScope, $location
       var index = $scope.recipes.indexOf(recipe);
       $scope.recipes.splice(index, 1);
       $scope.recipeToDelete = null;
-    });
-  };
-
-  $scope.updateRecipe = function(recipe) {
-    var updatedRecipe = {
-      title: $scope.editRecipeTitle,
-      link: $scope.editRecipeLink,
-      image_url: $scope.editRecipeImageUrl
-    };
-    recipeService.updateRecipe(recipe.id, updatedRecipe).then(function(response) {
-      var index = $scope.recipes.indexOf(recipe);
-      $scope.recipes[index] = response.data;
-      $scope.recipeToEdit = null;
     });
   };
 });

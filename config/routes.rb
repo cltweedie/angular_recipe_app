@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'recipes/mine', controller: :recipes
 
-  resources :recipes
+  resources :recipes, defaults: { format: 'json' }
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

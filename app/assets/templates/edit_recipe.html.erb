@@ -1,0 +1,49 @@
+<h1>Edit Recipe</h1>
+
+<div class="pure-u-1-2">
+  <form ng-submit="addRecipe()" class="pure-form pure-form-stacked pure-u-1">
+    <fieldset>
+      <label for="title">Title</label>
+      <input name="title" type="text" ng-model="recipe.title" class="pure-u-1" />
+      <label for="link">Link</label>
+      <input name="link" type="text" ng-model="recipe.link" class="pure-u-1"/>
+      <label for="image_url">Image URL</label>
+      <input name="image_url" type="text" ng-model="recipe.image_url" class="pure-u-1"/>
+      <label for="meal">Meal</label>
+      <select name="meal" ng-model="recipe.meal" class="pure-u-1">
+        <option>Breakfast</option>
+        <option>Lunch</option>
+        <option>Dinner</option>
+        <option>Dessert</option>
+      </select>
+      <label for="rating">Rating</label>
+      <select name="rating" ng-model="recipe.rating" class="pure-u-1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <label>Ingredients</label>
+      <div ng-repeat="ingredient in recipe.ingredients_attributes track by $index">
+        <input type="hidden" ng-model="ingredient.id" />
+        <input type="text" ng-model="ingredient.description" />
+      </div>
+      <span ng-click="newIngredientBox()" class="pure-button">Add Ingredient</span>
+    </fieldset>
+
+    <fieldset>
+      <label>Steps</label>
+      <div ng-repeat="step in recipe.steps_attributes track by $index">
+        <label>{{$index + 1}}</label>
+        <textarea type="text" ng-model="step.instruction" class="pure-u-1"/>
+      </div>
+      <span ng-click="newStepBox()" class="pure-button">Add Step</span>
+    </fieldset>
+
+  </form>
+    <button ng-click="updateRecipe()" class="pure-button mt">Update</button>
+</div>
