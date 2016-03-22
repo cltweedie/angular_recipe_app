@@ -11,4 +11,5 @@ json.recipe do
   json.steps_attributes do
     json.array! @steps, :id, :instruction
   end
+  json.user_email @user.email
 end

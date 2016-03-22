@@ -1,7 +1,6 @@
 recipeApp.controller('EditRecipeController', function($scope, $routeParams, recipeService) {
 
   recipeService.getRecipe($routeParams.id).then(function(response) {
-    // console.log(response.data.recipe);
     $scope.recipe = response.data.recipe;
   });
 

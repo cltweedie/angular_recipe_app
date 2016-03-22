@@ -21,12 +21,6 @@ class RecipesController < ApplicationController
     @steps = Step.where(recipe: @recipe)
     @ingredients = Ingredient.where(recipe: @recipe)
     @user = User.find(@recipe.user_id)
-    # render json: {
-    #                 recipe: @recipe,
-    #                 steps: @steps,
-    #                 ingredients: @ingredients,
-    #                 user_email: @user.email
-    #               }
   end
 
   def destroy

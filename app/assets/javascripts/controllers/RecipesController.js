@@ -24,13 +24,6 @@ recipeApp.controller('RecipesController', function($scope, $rootScope, $location
   $scope.showMeal = "all";
   $scope.sortOrder = "title";
 
-  $scope.editRecipe = function(recipe) {
-    $scope.recipeToEdit = recipe;
-    $scope.editRecipeTitle = recipe.title;
-    $scope.editRecipeLink = recipe.link;
-    $scope.editRecipeImageUrl = recipe.image_url;
-  };
-
   $scope.getTimes = function(n){
        return new Array(n);
   };
